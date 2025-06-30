@@ -53,7 +53,7 @@ const ProfileScreen = () => {
           { icon: 'thumbs-o-up', text: 'Rate us on Play Store' },
           { icon: 'file-text-o', text: 'Terms & Conditions' },
           { icon: 'shield', text: 'Privacy Policy' },
-          { icon: 'headphones', text: 'Contact Vahak Team' },
+          { icon: 'headphones', text: 'Contact Krushimandi Team' },
         ].map((item, index) => (
           <TouchableOpacity key={index} style={styles.optionRow}>
             <View style={styles.iconWrapper}>
@@ -73,7 +73,7 @@ const ProfileScreen = () => {
             >
               <FontAwesome5 name="twitter" size={22} color="#1DA1F2" />
             </TouchableOpacity>
->
+
 
             <TouchableOpacity
               style={styles.socialIcon}
