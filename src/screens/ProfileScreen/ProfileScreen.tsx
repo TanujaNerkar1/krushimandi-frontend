@@ -2,8 +2,10 @@ import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { Linking } from 'react-native'; // Ensure this is imported
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {
   View,
   Text,
@@ -11,16 +13,23 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Linking,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../../../App';
 
 const ProfileScreen = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const handleOptionPress = (screenName: keyof RootStackParamList) => {
+    navigation.navigate(screenName);
+  };
+
   return (
     <ScrollView style={styles.container}>
-
       <Text style={styles.screenTitle}>Profile</Text>
-
 
       <View style={styles.profileBox}>
         <Image
@@ -34,7 +43,6 @@ const ProfileScreen = () => {
       </View>
 
       <View style={styles.settingsSection}>
-
         <View style={styles.topBoxContainer}>
           <TouchableOpacity style={styles.topBox}>
             <Ionicons name="crown-outline" size={24} color="#2E7D32" />
@@ -46,16 +54,19 @@ const ProfileScreen = () => {
           </TouchableOpacity>
         </View>
 
-
         {[
-          { icon: 'cog', text: 'Settings' },
+          { icon: 'cog', text: 'Settings', screen: 'Settings' as keyof RootStackParamList },
           { icon: 'info-circle', text: 'Help guide' },
           { icon: 'thumbs-o-up', text: 'Rate us on Play Store' },
           { icon: 'file-text-o', text: 'Terms & Conditions' },
           { icon: 'shield', text: 'Privacy Policy' },
-          { icon: 'headphones', text: 'Contact Krushimandi Team' },
+          { icon: 'headphones', text: 'Contact Krushimandi Team', screen: 'Contact' as keyof RootStackParamList },
         ].map((item, index) => (
-          <TouchableOpacity key={index} style={styles.optionRow}>
+          <TouchableOpacity
+            key={index}
+            style={styles.optionRow}
+            onPress={() => item.screen && handleOptionPress(item.screen)}
+          >
             <View style={styles.iconWrapper}>
               <FontAwesome name={item.icon} size={20} color="#000" />
             </View>
@@ -64,16 +75,16 @@ const ProfileScreen = () => {
           </TouchableOpacity>
         ))}
 
-
         <View style={styles.footer}>
           <View style={styles.socialIcons}>
             <TouchableOpacity
               style={styles.socialIcon}
-              onPress={() => Linking.openURL('https://x.com/krushimandi?t=MpwAOndTGNhpmH69CuITtA&s=09')}
+              onPress={() =>
+                Linking.openURL('https://x.com/krushimandi?t=MpwAOndTGNhpmH69CuITtA&s=09')
+              }
             >
               <FontAwesome5 name="twitter" size={22} color="#1DA1F2" />
             </TouchableOpacity>
-
 
             <TouchableOpacity
               style={styles.socialIcon}
@@ -84,14 +95,20 @@ const ProfileScreen = () => {
 
             <TouchableOpacity
               style={styles.socialIcon}
-              onPress={() => Linking.openURL('https://www.instagram.com/krushimandi?igsh=ZXpuZmZ1dGJkOXU5')}
+              onPress={() =>
+                Linking.openURL(
+                  'https://www.instagram.com/krushimandi?igsh=ZXpuZmZ1dGJkOXU5'
+                )
+              }
             >
               <FontAwesome5 name="instagram" size={22} color="#C13584" />
             </TouchableOpacity>
 
             <TouchableOpacity
               style={styles.socialIcon}
-              onPress={() => Linking.openURL('https://youtube.com/@krushimandi?si=XREGlmY9a7ZVBl6E')}
+              onPress={() =>
+                Linking.openURL('https://youtube.com/@krushimandi?si=XREGlmY9a7ZVBl6E')
+              }
             >
               <FontAwesome5 name="youtube" size={22} color="#FF0000" />
             </TouchableOpacity>
@@ -103,7 +120,7 @@ const ProfileScreen = () => {
           </TouchableOpacity>
 
           <Text style={styles.footerText}>
-            App Version 3.15.2  •  Made with <Text style={{ color: 'red' }}>❤️</Text> in India
+            App Version 3.15.2 • Made with <Text style={{ color: 'red' }}>❤️</Text> in India
           </Text>
         </View>
       </View>
@@ -114,10 +131,7 @@ const ProfileScreen = () => {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F0F5F2',
-  },
+  container: { flex: 1, backgroundColor: '#F0F5F2' },
   profileBox: {
     backgroundColor: '#81C784',
     padding: 20,
@@ -128,22 +142,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginBottom: 8,
   },
-  profileImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginRight: 16,
-  },
-  name: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  lastLogin: {
-    color: '#D8EAD9',
-    fontSize: 12,
-    marginTop: 4,
-  },
+  profileImage: { width: 60, height: 60, borderRadius: 30, marginRight: 16 },
+  name: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
+  lastLogin: { color: '#D8EAD9', fontSize: 12, marginTop: 4 },
   screenTitle: {
     fontSize: 22,
     fontWeight: 'bold',
@@ -153,9 +154,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     color: '#000',
   },
-  settingsSection: {
-    marginTop: 16,
-  },
+  settingsSection: { marginTop: 16 },
   topBoxContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -196,16 +195,11 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#1D1D1D',
   },
-  footer: {
-    alignItems: 'center',
-    marginTop: 20,
-    paddingBottom: 30,
-  },
+  footer: { alignItems: 'center', marginTop: 20, paddingBottom: 30 },
   socialIcons: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginBottom: 12,
-
   },
   socialIcon: {
     backgroundColor: '#DCE6DA',
