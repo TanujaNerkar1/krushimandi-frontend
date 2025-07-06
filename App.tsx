@@ -11,6 +11,8 @@ import EditProfileScreen from './src/screens/ProfileScreen/EditProfileScreen';
 import ChangePasswordScreen from './src/screens/ProfileScreen/ChangePasswordScreen';
 import LanguagesScreen from './src/screens/ProfileScreen/LanguagesScreen';
 import AboutKrushimandiScreen from './src/screens/ProfileScreen/AboutKrushimandiScreen';
+import PrivacyPolicyScreen from './src/screens/ProfileScreen/PrivacyPolicyScreen';
+
 
 
 
@@ -24,6 +26,7 @@ export type RootStackParamList = {
   ChangePassword: undefined;
   Languages: undefined;
   AboutKrushimandi: undefined;
+  PrivacyPolicy: undefined;
 
 };
 
@@ -42,6 +45,7 @@ const App = () => {
         <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="Languages" component={LanguagesScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="AboutKrushimandi" component={AboutKrushimandiScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicyScreen} options={{ headerShown: false }}/>
 
 
       </Stack.Navigator>

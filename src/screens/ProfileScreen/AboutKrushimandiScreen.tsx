@@ -7,7 +7,7 @@ const AboutKrushimandiScreen = () => {
       <Text style={styles.heading}>About Krushimandi</Text>
 
       <Image
-        source={require('../../../assets/krushimandi_logo.png')} // Replace with your actual logo path
+        source={require('../../../assets/krushimandi_logo.png')} 
         style={styles.logo}
         resizeMode="contain"
       />

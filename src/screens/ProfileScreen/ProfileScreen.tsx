@@ -59,7 +59,7 @@ const ProfileScreen = () => {
           { icon: 'info-circle', text: 'Help guide' },
           { icon: 'thumbs-o-up', text: 'Rate us on Play Store' },
           { icon: 'file-text-o', text: 'Terms & Conditions' },
-          { icon: 'shield', text: 'Privacy Policy' },
+          { icon: 'shield', text: 'Privacy Policy', screen: 'PrivacyPolicy' as keyof RootStackParamList },
           { icon: 'headphones', text: 'Contact Krushimandi Team', screen: 'Contact' as keyof RootStackParamList },
         ].map((item, index) => (
           <TouchableOpacity
@@ -142,9 +142,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginBottom: 8,
   },
-  profileImage: { width: 60, height: 60, borderRadius: 30, marginRight: 16 },
-  name: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
-  lastLogin: { color: '#D8EAD9', fontSize: 12, marginTop: 4 },
+  profileImage: { 
+    width: 60, 
+    height: 60, 
+    borderRadius: 30, 
+    marginRight: 16 
+  },
+  name: { 
+    color: '#fff', 
+    fontSize: 18, 
+    fontWeight: 'bold' 
+  },
+  lastLogin:{ 
+    color: '#D8EAD9', 
+    fontSize: 12, 
+    marginTop: 4 
+  },
   screenTitle: {
     fontSize: 22,
     fontWeight: 'bold',
@@ -154,7 +167,9 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     color: '#000',
   },
-  settingsSection: { marginTop: 16 },
+  settingsSection: { 
+    marginTop: 16 
+  },
   topBoxContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -195,7 +210,11 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#1D1D1D',
   },
-  footer: { alignItems: 'center', marginTop: 20, paddingBottom: 30 },
+  footer: { 
+    alignItems: 'center', 
+    marginTop: 20, 
+    paddingBottom: 30 
+  },
   socialIcons: {
     flexDirection: 'row',
     justifyContent: 'center',

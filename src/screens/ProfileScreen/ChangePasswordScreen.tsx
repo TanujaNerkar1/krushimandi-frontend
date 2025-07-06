@@ -28,7 +28,7 @@ const ChangePasswordScreen = () => {
     }
 
     Alert.alert('Success', 'Password changed successfully!');
-    // Add backend call here if needed
+    
   };
 
   return (

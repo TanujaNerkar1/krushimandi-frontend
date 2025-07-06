@@ -21,7 +21,7 @@ const ContactScreen = () => {
     };
 
     const handleSend = () => {
-        // You can add form submission logic here
+        
         Alert.alert('Message Sent!');
     };
 
@@ -55,10 +55,7 @@ const ContactScreen = () => {
                     multiline
                     numberOfLines={4}
                 />
-                {/* <View style={styles.checkboxContainer}>
-                    <CheckBox value={isChecked} onValueChange={setIsChecked} tintColors={{ true: '#4CAF50', false: '#aaa' }} />
-                    <Text style={styles.checkboxText}>I agree to our friendly <Text style={styles.link}>privacy policy</Text></Text>
-                </View> */}
+                
                 <TouchableOpacity style={styles.sendButton} onPress={handleSend}>
                     <Text style={styles.sendButtonText}>Send Message</Text>
                 </TouchableOpacity>
