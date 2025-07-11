@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 const AboutKrushimandiScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.heading}>About Krushimandi</Text>
+      <Text style={styles.heading}> </Text>
 
       <Image
         source={require('../../../assets/krushimandi_logo.png')} 

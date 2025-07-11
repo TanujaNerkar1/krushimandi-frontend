@@ -60,7 +60,6 @@ const ProfileScreen = () => {
           { icon: 'thumbs-o-up', text: 'Rate us on Play Store' },
           { icon: 'file-text-o', text: 'Terms & Conditions' },
           { icon: 'shield', text: 'Privacy Policy', screen: 'PrivacyPolicy' as keyof RootStackParamList },
-          { icon: 'headphones', text: 'Contact Krushimandi Team', screen: 'Contact' as keyof RootStackParamList },
         ].map((item, index) => (
           <TouchableOpacity
             key={index}

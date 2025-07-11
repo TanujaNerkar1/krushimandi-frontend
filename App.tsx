@@ -5,7 +5,6 @@ import HomeScreen from './src/screens/HomeScreen';
 import DetailScreen from './src/screens/DetailScreen';
 import { Fruit } from './src/types';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
-import ContactScreen from './src/screens/ProfileScreen/ContactScreen';
 import SettingsScreen from './src/screens/ProfileScreen/SettingsScreen';
 import EditProfileScreen from './src/screens/ProfileScreen/EditProfileScreen';
 import ChangePasswordScreen from './src/screens/ProfileScreen/ChangePasswordScreen';
@@ -20,7 +19,6 @@ export type RootStackParamList = {
   HomeScreen: undefined;
   DetailScreen: { fruit: Fruit };
   ProfileScreen: undefined;
-  Contact: undefined;
   Settings: undefined;
   EditProfile: undefined;
   ChangePassword: undefined;
@@ -39,7 +37,6 @@ const App = () => {
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="DetailScreen" component={DetailScreen} options={{ headerShown: false }} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Contact" component={ContactScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
         <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{ headerShown: false }}/>
